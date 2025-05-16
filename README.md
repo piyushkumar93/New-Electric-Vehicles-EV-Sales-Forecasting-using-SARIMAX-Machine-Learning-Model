@@ -71,7 +71,10 @@ streamlit run app.py
 
 📊 Sample Output
 
-(Add your forecast graph screenshot here)
+![image](https://github.com/user-attachments/assets/68bf47c7-3fae-443a-b90e-735e5752f4fe)
+![image](https://github.com/user-attachments/assets/5b5b3f2f-2a08-43e4-af52-622605971320)
+
+
 
 🙋‍♂️ Author
 Piyush Kumar
