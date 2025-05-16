@@ -1,66 +1,82 @@
-# 🔋 Electric Vehicle (EV) Sales Forecasting (2025–2028) using SARIMAX
+# 🔋 Electric Vehicle Sales Forecasting (2025–2028) using SARIMAX
 
+![Streamlit](https://img.shields.io/badge/Made%20with-Streamlit-FF4B4B?logo=streamlit&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.9-blue)
-![Pandas](https://img.shields.io/badge/Pandas-data--analysis-yellowgreen)
-![SARIMAX](https://img.shields.io/badge/SARIMAX-Time%20Series%20Forecasting-orange)
-![Status](https://img.shields.io/badge/Model-Tested-brightgreen)
+![Statsmodels](https://img.shields.io/badge/Statsmodels-Time%20Series%20Modeling-orange)
+![Status](https://img.shields.io/badge/Deployed-Live-brightgreen)
 
-Forecasting electric vehicle (EV) sales across **2-wheelers, 3-wheelers, 4-wheelers, and buses** in India using the **SARIMAX time series model**. This project uses real-world data to predict sales trends from **2025 to 2028**.
+This project forecasts monthly sales of electric vehicles (EVs) in India across four categories —  
+**2-Wheelers, 3-Wheelers, 4-Wheelers, and Buses** — from 2025 to 2028 using the **SARIMAX time series model**.
+
+The app is built and deployed with **Streamlit** for interactive exploration of forecast results.
 
 ---
 
 ## 🚀 Features
 
-- Used SARIMAX for modeling seasonality, trend, and external noise in EV sales
-- Forecasts EV sales for 4 vehicle categories (2W, 3W, 4W, Buses)
-- Tuned SARIMAX `(p,d,q)(P,D,Q,s)` hyperparameters manually
-- Evaluated model performance using **MAE** and **MAPE**
-- Visualized forecast trends with confidence intervals for 2025–2028
+- Interactive dashboard to select vehicle category and forecast horizon (1 to 5 years)
+- Visualizes historical monthly EV sales data
+- Forecasts future sales with confidence intervals
+- Built using SARIMAX to capture seasonality and trends
+- Fast and responsive with user-friendly UI
 
 ---
 
-## 📊 Dataset Overview
+## 📈 Usage
 
-- Sourced from public government and EV market reports
-- Covers monthly EV sales from 2019 to 2024
-- Categorized by:
-  - 2-Wheelers (2W)
-  - 3-Wheelers (3W)
-  - 4-Wheelers (4W)
-  - Buses
+Visit the live app here:  
+👉 [https://new-electric-vehicles-ev-sales-forecasting-using-sarimax.streamlit.app/](https://new-electric-vehicles-ev-sales-forecasting-using-sarimax.streamlit.app/)
 
----
+Use the sidebar to:
+- Choose a vehicle category (2W, 3W, 4W, Buses)
+- Select the number of forecast years (1 to 5)
 
-## 📈 Forecast Results
-
-- **MAPE** (Mean Absolute Percentage Error):
-  - 2W: ~7.6%
-  - 3W: ~12.4%
-  - 4W: ~15.9%
-  - Buses: ~25.5%
-- Forecasted results show continued growth, especially in 2W and 4W segments
+The plot updates dynamically with the forecasted sales and confidence intervals.
 
 ---
 
-## 🧠 Tech Stack
+## 🧰 Tech Stack
 
-- Python
-- Pandas, NumPy
-- Matplotlib, Seaborn
-- Statsmodels (SARIMAX)
-- Excel (initial EDA)
+- Python 3.9+  
+- Streamlit (Dashboard UI)  
+- Pandas, NumPy (Data handling)  
+- Matplotlib (Plotting)  
+- Statsmodels (SARIMAX modeling)  
+- OpenPyXL (Excel file reading)
 
 ---
 
-## 🛠️ How to Run
+## 📂 Project Structure
+
+├── app.py # Streamlit dashboard app
+├── ev_sales_data.xlsx # Monthly EV sales data (Month, 2W, 3W, 4W, Buses)
+├── requirements.txt # Dependencies for running app
+├── README.md # Project documentation
+
+## 🛠️ How to Run Locally
 
 1. Clone the repo:
+
 ```bash
 git clone https://github.com/piyushkumar93/New-Electric-Vehicles-EV-Sales-Forecasting-using-SARIMAX-Machine-Learning-Model.git
 cd New-Electric-Vehicles-EV-Sales-Forecasting-using-SARIMAX-Machine-Learning-Model
 Install dependencies:
 
+pip install -r requirements.txt
+Run the Streamlit app:
 
-pip install pandas numpy matplotlib seaborn statsmodels
-Run the notebook:
-Open EV_Sales_SARIMAX_Forecasting.ipynb using Jupyter Notebook or Colab.
+streamlit run app.py
+```
+
+
+📊 Sample Output
+
+(Add your forecast graph screenshot here)
+
+🙋‍♂️ Author
+Piyush Kumar
+B.Tech Instrumentation & Control Engineering — NSUT (2023–2027)
+📧 piyushkumar-ug23@nsut.ac.in
+🔗 LinkedIn | GitHub
+
+
