@@ -58,3 +58,9 @@ Forecasting electric vehicle (EV) sales across **2-wheelers, 3-wheelers, 4-wheel
 ```bash
 git clone https://github.com/piyushkumar93/New-Electric-Vehicles-EV-Sales-Forecasting-using-SARIMAX-Machine-Learning-Model.git
 cd New-Electric-Vehicles-EV-Sales-Forecasting-using-SARIMAX-Machine-Learning-Model
+Install dependencies:
+
+
+pip install pandas numpy matplotlib seaborn statsmodels
+Run the notebook:
+Open EV_Sales_SARIMAX_Forecasting.ipynb using Jupyter Notebook or Colab.
