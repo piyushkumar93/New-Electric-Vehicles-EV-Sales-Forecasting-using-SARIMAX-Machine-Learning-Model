@@ -13,7 +13,7 @@ st.markdown("Forecasting future sales for EVs (2W, 3W, 4W, and Buses) using SARI
 # Load Excel with 'Month' column
 @st.cache_data
 def load_data():
-    df = pd.read_excel("ev_sales_data .xlsx")
+    df = pd.read_excel("ev_sales_data.xlsx")
     df['Month'] = pd.to_datetime(df['Month'], format="%B %Y")
     df.set_index('Month', inplace=True)
     return df
