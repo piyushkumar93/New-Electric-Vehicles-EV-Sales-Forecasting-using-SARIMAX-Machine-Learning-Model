@@ -8,26 +8,26 @@ from statsmodels.tsa.statespace.sarimax import SARIMAX
 st.set_page_config(page_title="EV Sales Forecasting", layout="wide")
 
 st.title("🔋 Electric Vehicle Sales Forecasting (2025–2028)")
-st.markdown("Predicting future sales of EVs (2W, 3W, 4W, and Buses) using the SARIMAX time series model.")
+st.markdown("Forecasting future sales for EVs (2W, 3W, 4W, and Buses) using SARIMAX on monthly data.")
 
-# Load the uploaded Excel file
+# Load Excel with 'Month' column
 @st.cache_data
 def load_data():
-    df = pd.read_excel("729d71a3-2516-4b3d-8713-2d9e0e3fb176.xlsx")  # use uploaded file name
-    df['Date'] = pd.to_datetime(df['Date'])
-    df.set_index('Date', inplace=True)
+    df = pd.read_excel("729d71a3-2516-4b3d-8713-2d9e0e3fb176.xlsx")
+    df['Month'] = pd.to_datetime(df['Month'], format="%B %Y")
+    df.set_index('Month', inplace=True)
     return df
 
 df = load_data()
 
-# Sidebar for options
+# Sidebar selections
 vehicle_type = st.sidebar.selectbox("Select vehicle type", df.columns)
 forecast_years = st.sidebar.slider("Forecast period (years)", min_value=1, max_value=5, value=4)
 
-# Get the selected column
+# Get selected series
 data = df[vehicle_type]
 
-# SARIMAX Model
+# SARIMAX modeling
 model = SARIMAX(data, order=(1,1,1), seasonal_order=(1,1,0,12))
 model_fit = model.fit(disp=False)
 
@@ -37,7 +37,7 @@ forecast = model_fit.get_forecast(steps=steps)
 forecast_mean = forecast.predicted_mean
 conf_int = forecast.conf_int()
 
-# Plotting
+# Plot
 fig, ax = plt.subplots(figsize=(12, 6))
 data.plot(ax=ax, label='Actual Sales')
 forecast_mean.plot(ax=ax, label='Forecast', color='orange')
@@ -45,8 +45,8 @@ ax.fill_between(conf_int.index,
                 conf_int.iloc[:, 0],
                 conf_int.iloc[:, 1], color='pink', alpha=0.3)
 plt.title(f"{vehicle_type} Sales Forecast ({forecast_years} Years)")
-plt.xlabel("Date")
-plt.ylabel("Sales")
+plt.xlabel("Month")
+plt.ylabel("Units Sold")
 plt.legend()
 st.pyplot(fig)
 
